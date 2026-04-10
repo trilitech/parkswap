@@ -16,18 +16,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         {children}
-        <Toaster
-          position="bottom-right"
-          richColors
-          theme="dark"
-          toastOptions={{
-            style: {
-              background: "#1b1b1b",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "#ffffff",
-            },
-          }}
-        />
+        <Toaster position="bottom-right" />
       </body>
     </html>
   );

@@ -124,7 +124,7 @@ function getReadableErrorMessage(error: unknown) {
   }
 
   if (/network switch failed/i.test(message)) {
-    return "Could not switch to ParkSwap network. Please change network in your wallet.";
+    return "Could not switch to Tezos X EVM testnet. Please change network in your wallet.";
   }
 
   if (/missing required env/i.test(message)) {
@@ -316,7 +316,7 @@ export default function Home() {
     }
 
     await refreshWalletState();
-    toast.success("Switched to ParkSwap network");
+    toast.success("Switched to Tezos X EVM testnet");
   }
 
   async function withSigner<T>(callback: (provider: BrowserProvider, account: string) => Promise<T>) {
@@ -330,7 +330,7 @@ export default function Home() {
 
   async function approveSwapToken() {
     if (!wallet.isCorrectNetwork) {
-      toast.error("Switch to ParkSwap network before approving.");
+      toast.error("Switch to Tezos X EVM testnet before approving.");
       return;
     }
 
@@ -361,7 +361,7 @@ export default function Home() {
 
   async function runSwap() {
     if (!wallet.isCorrectNetwork) {
-      toast.error("Switch to ParkSwap network before swapping.");
+      toast.error("Switch to Tezos X EVM testnet before swapping.");
       return;
     }
     const amount = swapInputParsed;
@@ -389,7 +389,7 @@ export default function Home() {
         });
         await tx.wait();
       });
-      toast.success("Swap confirmed on ParkSwap network", { id: "swap" });
+      toast.success("Swap confirmed on Tezos X EVM network", { id: "swap" });
       await refreshReadState(wallet.account);
     } catch (error) {
       toast.error(getReadableErrorMessage(error), { id: "swap" });
@@ -400,7 +400,7 @@ export default function Home() {
 
   async function approveLiquidityTokens() {
     if (!wallet.isCorrectNetwork) {
-      toast.error("Switch to ParkSwap network before approving liquidity.");
+      toast.error("Switch to Tezos X EVM testnet before approving liquidity.");
       return;
     }
 
@@ -428,7 +428,7 @@ export default function Home() {
 
   async function addLiquidity() {
     if (!wallet.isCorrectNetwork) {
-      toast.error("Switch to ParkSwap network before adding liquidity.");
+      toast.error("Switch to Tezos X EVM testnet before adding liquidity.");
       return;
     }
     if (!liquidityUsdcParsed || !liquidityXu3o8Parsed) {
