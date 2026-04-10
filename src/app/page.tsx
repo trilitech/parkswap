@@ -561,7 +561,18 @@ export default function Home() {
     <main className="min-h-screen bg-[#131313] text-white">
       <div className="border-b border-white/8 bg-[#171717]">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-5 py-3 text-sm text-white/70">
-          <p className="truncate">This interface is a lightweight MVP for USDC/xU3O8 on Tezos X testnet.</p>
+          <p className="truncate">
+            This interface is a lightweight fork of{" "}
+            <a
+              href="https://iguanadex.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"
+            >
+              IguanaDEX
+            </a>{" "}
+            on the Tezos X EVM testnet.
+          </p>
           <a
             href="https://demo.txpark.nomadic-labs.com/"
             target="_blank"

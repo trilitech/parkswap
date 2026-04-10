@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ParkSwap",
-  description: "Minimal swap and pool UI for USDC/xU3O8 on Tezos X testnet.",
+  description: "Lightweight fork of IguanaDEX for USDC/xU3O8 on Tezos X EVM testnet.",
 };
 
 export default function RootLayout({
