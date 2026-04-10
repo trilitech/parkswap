@@ -53,40 +53,24 @@ input::placeholder {
   background: rgba(125, 166, 255, 0.35);
 }
 
-/* Sonner — success (green), error (red), loading/default (white + black text) */
-[data-sonner-toast][data-type="success"] {
-  background: #15803d !important;
-  color: #fff !important;
-  border-color: #22c55e !important;
+/*
+ * Sonner injects its stylesheet after this file, so token overrides need !important.
+ * Success/error only pick up green/red when richColors is on (uses --success-bg / --error-bg).
+ */
+[data-sonner-toaster][data-sonner-theme="light"],
+[data-sonner-toaster][data-sonner-theme="dark"] {
+  --success-bg: #16a34a !important;
+  --success-border: #15803d !important;
+  --success-text: #ffffff !important;
+  --error-bg: #dc2626 !important;
+  --error-border: #b91c1c !important;
+  --error-text: #ffffff !important;
+  --normal-bg: #ffffff !important;
+  --normal-border: #e5e5e5 !important;
+  --normal-text: #0a0a0a !important;
 }
 
-[data-sonner-toast][data-type="success"] [data-title],
-[data-sonner-toast][data-type="success"] [data-description] {
-  color: #fff !important;
-}
-
-[data-sonner-toast][data-type="success"] [data-icon] {
-  color: #fff !important;
-}
-
-[data-sonner-toast][data-type="error"] {
-  background: #b91c1c !important;
-  color: #fff !important;
-  border-color: #f87171 !important;
-}
-
-[data-sonner-toast][data-type="error"] [data-title],
-[data-sonner-toast][data-type="error"] [data-description] {
-  color: #fff !important;
-}
-
-[data-sonner-toast][data-type="loading"],
-[data-sonner-toast][data-type="default"] {
-  background: #fff !important;
-  color: #0a0a0a !important;
-  border: 1px solid #e5e5e5 !important;
-}
-
+/* Loading / default: Sonner tints description gray; force dark text on white */
 [data-sonner-toast][data-type="loading"] [data-title],
 [data-sonner-toast][data-type="loading"] [data-description],
 [data-sonner-toast][data-type="default"] [data-title],

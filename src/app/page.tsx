@@ -3,6 +3,7 @@
 import { BrowserProvider, Contract, JsonRpcProvider, MaxUint256, formatUnits, parseUnits } from "ethers";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { ParkSwapLogo } from "@/components/ParkSwapLogo";
 import { Xu3o8Icon } from "@/components/Xu3o8Icon";
 import {
   ADDRESSES,
@@ -574,35 +575,30 @@ export default function Home() {
 
       <div className="mx-auto flex min-h-screen max-w-[1440px] flex-col px-5 py-4">
         <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white">
-              ◈
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <ParkSwapLogo className="h-10 w-10 shrink-0" size={40} />
+              <p className="text-3xl font-semibold tracking-tight text-white">ParkSwap</p>
             </div>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <p className="text-3xl font-semibold tracking-tight text-white">ParkSwap</p>
-                <span className="text-white/55">▾</span>
-              </div>
-              <nav className="flex flex-wrap gap-2 text-sm text-white/65">
-                {[
-                  { key: "swap", label: "Trade" },
-                  { key: "wallet", label: "Wallet" },
-                  { key: "pool", label: "Pool" },
-                  { key: "liquidity", label: "Liquidity" },
-                ].map((item) => (
-                  <button
-                    key={item.key}
-                    type="button"
-                    onClick={() => setActiveView(item.key as typeof activeView)}
-                    className={`rounded-full px-3 py-2 ${
-                      activeView === item.key ? "text-white" : "text-white/65 hover:text-white"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </nav>
-            </div>
+            <nav className="flex flex-wrap gap-2 text-sm text-white/65">
+              {[
+                { key: "swap", label: "Trade" },
+                { key: "wallet", label: "Wallet" },
+                { key: "pool", label: "Pool" },
+                { key: "liquidity", label: "Liquidity" },
+              ].map((item) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => setActiveView(item.key as typeof activeView)}
+                  className={`rounded-full px-3 py-2 ${
+                    activeView === item.key ? "text-white" : "text-white/65 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
           </div>
 
           <div className="flex items-center gap-3">
@@ -758,7 +754,10 @@ export default function Home() {
                           {quote.amountOut ? Number(quote.amountOut).toLocaleString(undefined, { maximumFractionDigits: 6 }) : "0.0"}
                         </div>
                         <div className="mt-2 text-sm text-white/35">
-                          ≈ {quote.amountOut ? Number(quote.amountOut).toLocaleString(undefined, { maximumFractionDigits: 2 }) : "0"}
+                          ≈{" "}
+                          {quote.amountOut
+                            ? `${Number(quote.amountOut).toLocaleString(undefined, { maximumFractionDigits: 2 })} ${TOKENS[swapTo].symbol}`
+                            : `0 ${TOKENS[swapTo].symbol}`}
                         </div>
                       </div>
                       <button
