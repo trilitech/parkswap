@@ -932,15 +932,14 @@ export default function Home() {
                 <p className="text-sm text-white/55">Recent Tokens</p>
                 <h3 className="mt-1 text-xl font-semibold tracking-tight">Your deployed tokens</h3>
                 <p className="mt-2 text-sm text-white/45">
-                  A list of tokens you{"'"}ve deployed on ParkSwap recently. Open{" "}
+                  A list of tokens you{"'"}ve deployed on ParkSwap recently.{" "}
                   <button
                     type="button"
                     onClick={() => setActiveView("create")}
-                    className="text-white/70 underline decoration-white/25 underline-offset-2 hover:text-white"
+                    className="font-bold text-white/85 hover:text-white"
                   >
                     Create Token
-                  </button>{" "}
-                  to deploy another.
+                  </button>
                 </p>
                 {deployedTokens.length === 0 ? (
                   <p className="mt-6 text-sm text-white/45">No deployments yet.</p>
